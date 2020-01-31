@@ -1,2 +1,3 @@
-# spain-blog
-Just having fun with Angular, writing a blog for a specific trip to Spain
+# argentina-blog
+Pretty much what I did for "spain-blog", but this time the blog is themed for a long trip
+
