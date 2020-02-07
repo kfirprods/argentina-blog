@@ -1,8 +1,10 @@
+import { PostViewComponent } from './post-view/post-view.component';
+import { DestinationPostsViewComponent } from './destination-posts-view/destination-posts-view.component';
+import { LoginComponent } from './components/login/login.component';
 import { DestinationsViewComponent } from './destinations-view/destinations-view.component';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainViewComponent } from './main-view-component/main-view-component';
 
 
 const routes: Routes = [
@@ -10,12 +12,16 @@ const routes: Routes = [
     component: DestinationsViewComponent
   },
   {
-    path: 'destination/:destination',
-    component: MainViewComponent
+    path: 'destination/:id',
+    component: DestinationPostsViewComponent
   },
   {
-    path: 'destination/:destination/:day',
-    component: MainViewComponent
+    path: 'posts/:id',
+    component: PostViewComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 

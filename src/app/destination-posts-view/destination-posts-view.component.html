@@ -1,0 +1,17 @@
+<div>
+  <div *ngFor="let post of posts">
+    <h2 class="preview-title">
+      {{post.title}}
+    </h2>
+
+    <h4 class="preview-subtitle">
+      <app-timestamp-presenter [timestamp]="post.uploadTime"></app-timestamp-presenter>
+    </h4>
+
+    <img [src]="post.titleImage" class="preview-image" />
+
+    <p class="preview-content">
+      <app-paragraphs-preview-component [paragraphs]="post.paragraphs"></app-paragraphs-preview-component>
+    </p>
+  </div>
+</div>

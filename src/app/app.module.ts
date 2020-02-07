@@ -1,4 +1,4 @@
-import { MainViewComponent } from './main-view-component/main-view-component';
+import { LoginComponent } from './components/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,6 +12,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { GalleryModule } from '@ks89/angular-modal-gallery';
 import { CookieService } from 'ngx-cookie-service';
 import { MatSnackBarModule } from '@angular/material';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
 import { ProgressBarDotsComponent } from './components/progress-bar-dots/progress-bar-dots.component';
@@ -19,14 +20,15 @@ import { DaysProgressionComponent } from './components/days-progression/days-pro
 
 import { httpInterceptorProviders } from './http-interceptors';
 import { CurrentActivityComponent } from './components/current-activity/current-activity.component';
-import { BlogPostsComponent } from './components/blog-posts/blog-posts.component';
 import { TimestampPresenterComponent } from './components/timestamp-presenter/timestamp-presenter.component';
-import { BlogPostContentPresenterComponent } from './components/blog-post-content-presenter/blog-post-content-presenter.component';
-import { BlogMediaPresenterComponent } from './components/blog-media-presenter/blog-media-presenter.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { DestinationsViewComponent } from './destinations-view/destinations-view.component';
+import { DestinationPostsViewComponent } from './destination-posts-view/destination-posts-view.component';
+import { PostViewComponent } from './post-view/post-view.component';
+import { ParagraphsPreviewComponentComponent } from './paragraphs-preview-component/paragraphs-preview-component.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyB1QdY-ajur89hEKNJfdRF_ejpttSgPpOY',
@@ -52,6 +54,8 @@ const firebaseConfig = {
     MatSnackBarModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
+    AngularFireAuthModule,
+    FontAwesomeModule,
     AppRoutingModule
   ],
   declarations: [
@@ -59,14 +63,14 @@ const firebaseConfig = {
     ProgressBarDotsComponent,
     DaysProgressionComponent,
     CurrentActivityComponent,
-    BlogPostsComponent,
     TimestampPresenterComponent,
-    BlogPostContentPresenterComponent,
-    BlogMediaPresenterComponent,
-    MainViewComponent,
-    DestinationsViewComponent
+    LoginComponent,
+    DestinationsViewComponent,
+    DestinationPostsViewComponent,
+    PostViewComponent,
+    ParagraphsPreviewComponentComponent
   ],
   bootstrap: [AppComponent],
   providers: [httpInterceptorProviders, CookieService]
 })
-export class AppModule {}
+export class AppModule { }
