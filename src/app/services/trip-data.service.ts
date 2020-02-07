@@ -1,19 +1,19 @@
 import { Observable } from 'rxjs';
-import { TripData } from './../models/trip-data';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
+import { Destination } from '../models/destination.type';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TripDataService {
-  private tripData: Observable<TripData>;
+  private destinations: Observable<Destination[]>;
 
   constructor(private db: AngularFirestore) {
-    this.tripData = db.collection('metadata').doc<TripData>('main').valueChanges();
+    this.destinations = db.collection<Destination>('/destinations').valueChanges();
   }
 
-  getTripData() {
-    return this.tripData;
+  getDestinations() {
+    return this.destinations;
   }
 }

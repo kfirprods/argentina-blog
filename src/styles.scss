@@ -4,14 +4,9 @@ body {
   font-family: "Varela Round";
   direction: rtl;
   margin: 0;
-  background: black;
+  background: #fafafa;
 
   background-repeat: repeat-y;
   background-size: cover;
   background-position: center;
-  background-image: url('https://kfir.dev/spainmedia/images/grass_background_portrait.jpg');
-
-  @media screen and (min-width: 1024px) {
-    background-image: url('https://kfir.dev/spainmedia/images/grass_background_landscape.jpg');
-  }
 }

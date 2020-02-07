@@ -1,0 +1,41 @@
+.destination-container {
+  margin: 50px 10%;
+  box-shadow: 0 6px 8px 0 rgba(0,0,0,0.2);
+  text-align: center;
+  overflow: hidden;
+  background: #fff;
+}
+
+.destination-header-image {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+
+.destination-header-text {
+  margin: 0;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.destination-dates-text {
+  direction: ltr;
+  margin: 0;
+  opacity: 0.6;
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+
+.destination-info {
+  margin-top: 20px;
+  direction: rtl;
+  text-align: right;
+  margin: 20px 10% 10px 10%;
+}
+
+.destination-link {
+  text-decoration: none;
+  color: inherit;
+}
