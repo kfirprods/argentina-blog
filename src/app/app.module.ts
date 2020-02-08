@@ -12,6 +12,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { GalleryModule } from '@ks89/angular-modal-gallery';
 import { CookieService } from 'ngx-cookie-service';
 import { MatSnackBarModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
@@ -52,6 +53,7 @@ const firebaseConfig = {
     NgxYoutubePlayerModule.forRoot(),
     GalleryModule.forRoot(),
     MatSnackBarModule,
+    FlexLayoutModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,

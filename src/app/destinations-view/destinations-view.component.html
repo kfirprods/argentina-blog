@@ -1,23 +1,32 @@
-<div *ngFor="let destination of destinations">
-    <a [routerLink]="['/destination', destination.id]"
-       class='destination-link'>
-        <div class="destination-container">
-            <img [src]="destination.image" class="destination-header-image" />
+<section *ngFor="let destination of destinations">
 
-            <h2 class="destination-header-text">
-                {{destination.name}}
-            </h2>
-
-            <h4 class="destination-dates-text">
-                {{destination.timeOfArrival.seconds * 1000 | date:'MM-dd-yyyy' }} —
-                {{destination.timeOfDeparture.seconds * 1000 | date:'dd-MM-yyyy' }}
-            </h4>
-
-            <div class="destination-info">
-                <div>
-                    מידע נוסף
-                </div>
-            </div>
+  <div class="destination-container">
+    <a [routerLink]="['/destination', destination.id]" class='destination-link'>
+      <div>
+        <div>
+          <img [src]="destination.image" class="destination-header-image" />
         </div>
+
+        <div>
+          <h3 class="destination-header-text">
+            {{destination.name}}
+          </h3>
+
+          <p class="destination-dates-text">
+            {{destination.timeOfArrival.seconds * 1000 | date:'dd/MM' }} —
+            {{destination.timeOfDeparture.seconds * 1000 | date:'dd/MM' }}
+          </p>
+        </div>
+
+        <div class="destination-info">
+          <p>
+            5 פוסטים
+          </p>
+          <p>
+            7 תמונות
+          </p>
+        </div>
+      </div>
     </a>
-</div>
+  </div>
+</section>

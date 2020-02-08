@@ -1,16 +1,20 @@
 .preview-title {
-  margin: 0;
-  font-size: 1.25rem;
+  font-size: 2em;
+  font-weight: 700;
 }
 
 .preview-subtitle {
-  margin: 0;
   opacity: 0.6;
   font-weight: 400;
-  font-size: 0.875rem;
 }
 
 .preview-image {
   width: 100%;
   height: auto;
+  border-top: 1px solid #bababa;
+}
+
+.preview-content {
+  font-size: 1.8em;
+  font-weight: 400;
 }
