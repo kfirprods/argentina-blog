@@ -125,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "spain-blog"
+    }
+  },
+  "defaultProject": "spain-blog",
+  "cli": {
+    "analytics": "6ac5b280-a8b9-42ca-85ff-e5b3192e2dab"
+  }
 }

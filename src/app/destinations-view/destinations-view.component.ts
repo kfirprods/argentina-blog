@@ -6,7 +6,6 @@ import { BlogPost } from '../models/blog-post.type';
 import { Component, OnInit } from '@angular/core';
 
 import { ActivityType } from '../components/current-activity/activity-type.enum';
-import { MatSnackBar } from '@angular/material';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { of, Observable } from 'rxjs';
@@ -30,8 +29,7 @@ export class DestinationsViewComponent implements OnInit {
         private blogPostsService: BlogPostsService,
         private activatedRoute: ActivatedRoute,
         private router: Router,
-        private cookieService: CookieService,
-        private snackbar: MatSnackBar
+        private cookieService: CookieService
     ) {
         this.destinations = null;
 

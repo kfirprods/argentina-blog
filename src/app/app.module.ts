@@ -6,12 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatVideoModule } from 'mat-video';
-import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { GalleryModule } from '@ks89/angular-modal-gallery';
 import { CookieService } from 'ngx-cookie-service';
-import { MatSnackBarModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -49,10 +46,7 @@ const firebaseConfig = {
     HttpClientModule,
     AngularSvgIconModule,
     BrowserAnimationsModule,
-    MatVideoModule,
-    NgxYoutubePlayerModule.forRoot(),
     GalleryModule.forRoot(),
-    MatSnackBarModule,
     FlexLayoutModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
