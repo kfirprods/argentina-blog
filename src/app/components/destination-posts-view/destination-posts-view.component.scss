@@ -1,0 +1,48 @@
+.preview-title {
+  font-size: 2em;
+  font-weight: 700;
+  margin: 0;
+}
+
+.preview-image {
+  width: 100%;
+  height: auto;
+  border-top: 1px solid #bababa;
+  margin: 0;
+}
+
+.preview-content {
+  font-size: 1.8em;
+  font-weight: 400;
+  margin: 0;
+}
+
+.preview-content-container {
+  margin: 20px;
+}
+
+.day {
+  display: block;
+  font-size: 1.8em;
+  font-weight: 700;
+  text-align: center;
+}
+
+.month {
+  display: block;
+  font-size: 1.4em;
+  font-weight: 400;
+  text-align: center;
+}
+
+.post-preview-tile-container {
+  border: 1px solid #a0a0a0;
+  padding: 10px;
+  margin: 5%;
+}
+
+.preview-date-container {
+  background: #158eff;
+  color: white;
+  padding: 0px 10px;
+}

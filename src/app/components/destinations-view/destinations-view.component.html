@@ -1,0 +1,27 @@
+<section *ngFor="let destination of destinations">
+  <div class="destination-container" [routerLink]="['/destination', destination.id]">
+    <div>
+      <img [src]="destination.image" class="destination-header-image" />
+    </div>
+
+    <div>
+      <h3 class="destination-header-text">
+        {{destination.name}}
+      </h3>
+
+      <p class="destination-dates-text">
+        {{destination.timeOfArrival.seconds * 1000 | date:'dd/MM' }} —
+        {{destination.timeOfDeparture.seconds * 1000 | date:'dd/MM' }}
+      </p>
+    </div>
+
+    <div class="destination-info">
+      <p>
+        5 פוסטים
+      </p>
+      <p>
+        7 תמונות
+      </p>
+    </div>
+  </div>
+</section>

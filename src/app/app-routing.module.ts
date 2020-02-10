@@ -1,8 +1,7 @@
-import { PostViewComponent } from './post-view/post-view.component';
-import { DestinationPostsViewComponent } from './destination-posts-view/destination-posts-view.component';
+import { PostViewComponent } from './components/post-view/post-view.component';
+import { DestinationPostsViewComponent } from './components/destination-posts-view/destination-posts-view.component';
 import { LoginComponent } from './components/login/login.component';
-import { DestinationsViewComponent } from './destinations-view/destinations-view.component';
-import { AppComponent } from './app.component';
+import { DestinationsViewComponent } from './components/destinations-view/destinations-view.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -12,11 +11,11 @@ const routes: Routes = [
     component: DestinationsViewComponent
   },
   {
-    path: 'destination/:id',
+    path: 'destination/:destinationId',
     component: DestinationPostsViewComponent
   },
   {
-    path: 'posts/:id',
+    path: 'destination/:destinationId/post/:postId',
     component: PostViewComponent
   },
   {

@@ -13,20 +13,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
-import { ProgressBarDotsComponent } from './components/progress-bar-dots/progress-bar-dots.component';
-import { DaysProgressionComponent } from './components/days-progression/days-progression.component';
 
 import { httpInterceptorProviders } from './http-interceptors';
-import { CurrentActivityComponent } from './components/current-activity/current-activity.component';
-import { TimestampPresenterComponent } from './components/timestamp-presenter/timestamp-presenter.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { DestinationsViewComponent } from './destinations-view/destinations-view.component';
-import { DestinationPostsViewComponent } from './destination-posts-view/destination-posts-view.component';
-import { PostViewComponent } from './post-view/post-view.component';
+import { DestinationsViewComponent } from './components/destinations-view/destinations-view.component';
+import { DestinationPostsViewComponent } from './components/destination-posts-view/destination-posts-view.component';
+import { PostViewComponent } from './components/post-view/post-view.component';
 import { ParagraphsPreviewComponentComponent } from './paragraphs-preview-component/paragraphs-preview-component.component';
+import { HebrewMonthNamePipe } from './pipes/hebrew-month-name.pipe';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyB1QdY-ajur89hEKNJfdRF_ejpttSgPpOY',
@@ -56,15 +53,12 @@ const firebaseConfig = {
   ],
   declarations: [
     AppComponent,
-    ProgressBarDotsComponent,
-    DaysProgressionComponent,
-    CurrentActivityComponent,
-    TimestampPresenterComponent,
     LoginComponent,
     DestinationsViewComponent,
     DestinationPostsViewComponent,
     PostViewComponent,
-    ParagraphsPreviewComponentComponent
+    ParagraphsPreviewComponentComponent,
+    HebrewMonthNamePipe
   ],
   bootstrap: [AppComponent],
   providers: [httpInterceptorProviders, CookieService]

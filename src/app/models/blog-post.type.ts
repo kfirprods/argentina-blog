@@ -6,6 +6,7 @@ import { firestore } from 'firebase';
 export interface BlogPost {
   id: string;
   title: string;
+  previewTitle: string;
   uploadTime: firestore.Timestamp;
   titleImage: string;
   paragraphs: Paragraph[];
