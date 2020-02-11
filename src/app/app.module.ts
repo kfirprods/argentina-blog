@@ -19,8 +19,6 @@ import { DestinationsViewComponent } from './components/destinations-view/destin
 import { DestinationPostsViewComponent } from './components/destination-posts-view/destination-posts-view.component';
 import { PostViewComponent } from './components/post-view/post-view.component';
 import { HebrewMonthNamePipe } from './pipes/hebrew-month-name.pipe';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyB1QdY-ajur89hEKNJfdRF_ejpttSgPpOY',
@@ -41,8 +39,7 @@ const firebaseConfig = {
     AngularFirestoreModule,
     AngularFireAuthModule,
     FontAwesomeModule,
-    AppRoutingModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,
