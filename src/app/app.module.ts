@@ -1,29 +1,26 @@
-import { LoginComponent } from './components/login/login.component';
-import { AppRoutingModule } from './app-routing.module';
+/* Built-in modules */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { AngularSvgIconModule } from 'angular-svg-icon';
-import { GalleryModule } from '@ks89/angular-modal-gallery';
-import { CookieService } from 'ngx-cookie-service';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
-import { AppComponent } from './app.component';
-
-import { httpInterceptorProviders } from './http-interceptors';
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+
+/* External libraries */
+import { CookieService } from 'ngx-cookie-service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+/* My libraries */
+import { LoginComponent } from './components/login/login.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { httpInterceptorProviders } from './http-interceptors';
 import { DestinationsViewComponent } from './components/destinations-view/destinations-view.component';
 import { DestinationPostsViewComponent } from './components/destination-posts-view/destination-posts-view.component';
 import { PostViewComponent } from './components/post-view/post-view.component';
-import { ParagraphsPreviewComponentComponent } from './paragraphs-preview-component/paragraphs-preview-component.component';
 import { HebrewMonthNamePipe } from './pipes/hebrew-month-name.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyB1QdY-ajur89hEKNJfdRF_ejpttSgPpOY',
@@ -39,17 +36,13 @@ const firebaseConfig = {
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    AngularSvgIconModule,
-    BrowserAnimationsModule,
-    GalleryModule.forRoot(),
     FlexLayoutModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
     FontAwesomeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   declarations: [
     AppComponent,
@@ -57,7 +50,6 @@ const firebaseConfig = {
     DestinationsViewComponent,
     DestinationPostsViewComponent,
     PostViewComponent,
-    ParagraphsPreviewComponentComponent,
     HebrewMonthNamePipe
   ],
   bootstrap: [AppComponent],
