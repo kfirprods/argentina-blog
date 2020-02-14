@@ -1,0 +1,40 @@
+.header-image-container {
+  width: 100%;
+  position: relative;
+  margin-bottom: 5%;
+}
+
+.header-image-container img {
+  width: 100%;
+}
+
+.header-title-container {
+  background: rgba(black, 0.8);
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.header-title {
+  color: #EAEAEA;
+  margin: 0 5%;
+  font-size: 3em;
+}
+
+%post-content-properties {
+  font-size: 2.5em;
+  margin: 1em 3%;
+}
+
+.hebrew-content-paragraph {
+  @extend %post-content-properties;
+  direction: rtl;
+}
+
+.english-content-paragraph {
+  @extend %post-content-properties;
+  direction: ltr;
+  text-align: center;
+}

@@ -11,6 +11,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class DestinationPostsViewComponent implements OnInit {
   posts: Array<BlogPost>;
+  hasNoPosts: boolean;
   destinationId: string;
 
   constructor(private db: AngularFirestore, private route: ActivatedRoute) {

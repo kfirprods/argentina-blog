@@ -1,5 +1,18 @@
 <div>
-  <h1>
-    {{post.title}}
-  </h1>
+  <div class="header-image-container">
+    <img [src]="post.titleImage">
+
+    <div class="header-title-container">
+      <h2 class="header-title">
+        {{post.title}}
+      </h2>
+    </div>
+  </div>
+
+  <p *ngFor="let paragraph of post.paragraphs"
+     [ngClass]="paragraph.direction === 'ltr' ? 'english-content-paragraph' : 'hebrew-content-paragraph'">
+    {{paragraph.text}}
+
+    <app-blog-media-presenter [media]="paragraph.media"></app-blog-media-presenter>
+  </p>
 </div>

@@ -1,3 +1,4 @@
+import { BlogMediaPresenterComponent } from './components/blog-media-presenter/blog-media-presenter.component';
 /* Built-in modules */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -47,6 +48,7 @@ const firebaseConfig = {
     DestinationsViewComponent,
     DestinationPostsViewComponent,
     PostViewComponent,
+    BlogMediaPresenterComponent,
     HebrewMonthNamePipe
   ],
   bootstrap: [AppComponent],

@@ -6,4 +6,8 @@ export interface Destination {
     image: string;
     timeOfArrival: firestore.Timestamp;
     timeOfDeparture: firestore.Timestamp;
+
+    // Injected after fetch
+    postsCount: number;
+    photosCount: number;
 }

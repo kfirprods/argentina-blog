@@ -1,10 +1,10 @@
 <section *ngFor="let destination of destinations">
   <div class="destination-container" [routerLink]="['/destination', destination.id]">
-    <div>
+    <div class="destination-image-container">
       <img [src]="destination.image" class="destination-header-image" />
     </div>
 
-    <div>
+    <div class="destination-text-container">
       <h3 class="destination-header-text">
         {{destination.name}}
       </h3>
@@ -17,10 +17,18 @@
 
     <div class="destination-info">
       <p>
-        5 פוסטים
+        <img src="assets/comment-text-multiple-outline.svg">
+
+        <span>
+          {{destination.postsCount}} פוסטים
+        </span>
       </p>
       <p>
-        7 תמונות
+        <img src="assets/image-multiple-outline.svg">
+
+        <span>
+          {{destination.photosCount}} תמונות
+        </span>
       </p>
     </div>
   </div>
