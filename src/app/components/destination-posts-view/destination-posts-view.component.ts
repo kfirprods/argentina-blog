@@ -23,6 +23,12 @@ export class DestinationPostsViewComponent implements OnInit {
   ngOnInit() {
     this.destinationId = this.route.snapshot.paramMap.get('destinationId');
 
+    this.db.collection('destinations').doc<Destination>(this.destinationId)
+      .valueChanges()
+      .subscribe(destination => {
+        this.destination = destination;
+      });
+
     this.db.collection<BlogPost>(`/destinations/${this.destinationId}/posts`)
       .snapshotChanges()
       .pipe(map(changes => {
