@@ -1,3 +1,4 @@
+import { Destination } from './../../models/destination.type';
 import { map } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { BlogPost } from 'src/app/models/blog-post.type';
@@ -13,6 +14,7 @@ export class DestinationPostsViewComponent implements OnInit {
   posts: Array<BlogPost>;
   hasNoPosts: boolean;
   destinationId: string;
+  destination: Destination;
 
   constructor(private db: AngularFirestore, private route: ActivatedRoute) {
     this.posts = null;
@@ -33,7 +35,7 @@ export class DestinationPostsViewComponent implements OnInit {
       }))
       .subscribe(posts => {
         this.posts = posts.sort((post1, post2) => {
-          if (post1.uploadTime.seconds >  post2.uploadTime.seconds) {
+          if (post1.uploadTime.seconds > post2.uploadTime.seconds) {
             return -1;
           } else {
             return 1;

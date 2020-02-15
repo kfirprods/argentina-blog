@@ -24,3 +24,19 @@
     </div>
   </div>
 </div>
+
+
+<div *ngIf="posts == null || posts.length === 0" class="empty-destination-container">
+  <div class="empty-destination">
+    <h2>
+      עדיין לא הספקתי להעלות תמונות ל {{destination.name}}
+    </h2>
+    <h3>
+      תחזרו מאוחר יותר? :)
+    </h3>
+  </div>
+
+  <a [routerLink]="['/']">
+    חזרה לעמוד הראשי
+  </a>
+</div>
