@@ -5,4 +5,5 @@ export interface Paragraph {
   text: string;
   direction: string;
   id: string;
+  index: number;
 }

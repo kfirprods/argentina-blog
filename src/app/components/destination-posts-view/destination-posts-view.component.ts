@@ -21,7 +21,7 @@ export class DestinationPostsViewComponent implements OnInit {
   ngOnInit() {
     this.destinationId = this.route.snapshot.paramMap.get('destinationId');
 
-    this.db.collection<BlogPost>('/posts', ref => ref.where('destinationId', '==', this.destinationId))
+    this.db.collection<BlogPost>(`/destinations/${this.destinationId}/posts`)
       .snapshotChanges()
       .pipe(map(changes => {
         return changes.map(change => {

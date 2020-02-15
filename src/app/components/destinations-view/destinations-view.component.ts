@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { CookieService } from 'ngx-cookie-service';
 import { Component, OnInit } from '@angular/core';
@@ -43,7 +44,16 @@ export class DestinationsViewComponent implements OnInit {
   ngOnInit() {
     this.isLoadingData = true;
 
-    this.db.collection<Destination>('/destinations').valueChanges().subscribe(destinations => {
+    this.db.collection<Destination>('/destinations').snapshotChanges()
+      .pipe(map(changes => {
+        return changes.map(change => {
+          const destination = change.payload.doc.data() as Destination;
+          destination.id = change.payload.doc.id;
+
+          return destination;
+        });
+      }))
+    .subscribe(destinations => {
       this.cookieService.set('last-visit', `${Date.now()}`);
 
       this.isLoadingData = false;

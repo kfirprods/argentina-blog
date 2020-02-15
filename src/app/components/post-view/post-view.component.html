@@ -1,6 +1,6 @@
 <div>
   <div class="header-image-container">
-    <img [src]="post.titleImage">
+    <img [src]="post.largeImage">
 
     <div class="header-title-container">
       <h2 class="header-title">
@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <p *ngFor="let paragraph of post.paragraphs"
+  <p *ngFor="let paragraph of paragraphs"
      [ngClass]="paragraph.direction === 'ltr' ? 'english-content-paragraph' : 'hebrew-content-paragraph'">
     {{paragraph.text}}
 
