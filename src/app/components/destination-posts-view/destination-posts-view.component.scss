@@ -40,3 +40,23 @@
   color: white;
   padding: 0px 10px;
 }
+
+.empty-destination-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 20% 0;
+}
+
+.empty-destination {
+  margin: 0 5%;
+  text-align: center;
+}
+
+.empty-destination-container a {
+  margin: 10% 5%;
+  font-size: 2.5em;
+  text-decoration: none;
+  color: #0074D9
+}

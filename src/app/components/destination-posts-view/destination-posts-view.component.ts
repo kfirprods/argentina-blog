@@ -1,3 +1,4 @@
+import { Destination } from './../../models/destination.type';
 import { map } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { BlogPost } from 'src/app/models/blog-post.type';
@@ -13,6 +14,7 @@ export class DestinationPostsViewComponent implements OnInit {
   posts: Array<BlogPost>;
   hasNoPosts: boolean;
   destinationId: string;
+  destination: Destination;
 
   constructor(private db: AngularFirestore, private route: ActivatedRoute) {
     this.posts = null;
@@ -20,6 +22,12 @@ export class DestinationPostsViewComponent implements OnInit {
 
   ngOnInit() {
     this.destinationId = this.route.snapshot.paramMap.get('destinationId');
+
+    this.db.collection<Destination>('destinations', ref => ref.where('id', '==', this.destinationId))
+    .valueChanges()
+    .subscribe(destinations => {
+      this.destination = destinations[0];
+    });
 
     this.db.collection<BlogPost>('/posts', ref => ref.where('destinationId', '==', this.destinationId))
       .snapshotChanges()
@@ -33,7 +41,7 @@ export class DestinationPostsViewComponent implements OnInit {
       }))
       .subscribe(posts => {
         this.posts = posts.sort((post1, post2) => {
-          if (post1.uploadTime.seconds >  post2.uploadTime.seconds) {
+          if (post1.uploadTime.seconds > post2.uploadTime.seconds) {
             return -1;
           } else {
             return 1;
