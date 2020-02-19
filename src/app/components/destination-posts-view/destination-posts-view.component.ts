@@ -1,9 +1,10 @@
+import { DestinationsService } from './../../services/destinations.service';
+import { PostsService } from './../../services/posts.service';
 import { Destination } from './../../models/destination.type';
 import { map } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { BlogPost } from 'src/app/models/blog-post.type';
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-destination-posts-view',
@@ -15,38 +16,29 @@ export class DestinationPostsViewComponent implements OnInit {
   hasNoPosts: boolean;
   destinationId: string;
   destination: Destination;
+  isLoading: boolean;
 
-  constructor(private db: AngularFirestore, private route: ActivatedRoute) {
-    this.posts = null;
+  constructor(
+    private destinationsService: DestinationsService,
+    private postsService: PostsService,
+    private route: ActivatedRoute) {
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.isLoading = true;
     this.destinationId = this.route.snapshot.paramMap.get('destinationId');
 
-    this.db.collection('destinations').doc<Destination>(this.destinationId)
-      .valueChanges()
-      .subscribe(destination => {
-        this.destination = destination;
-      });
+    const posts = await this.postsService.getPosts(this.destinationId);
+    this.posts = posts.sort((post1, post2) => {
+      if (post1.uploadTime > post2.uploadTime) {
+        return -1;
+      } else {
+        return 1;
+      }
+    });
 
-    this.db.collection<BlogPost>(`/destinations/${this.destinationId}/posts`)
-      .snapshotChanges()
-      .pipe(map(changes => {
-        return changes.map(change => {
-          const blogPost = change.payload.doc.data() as BlogPost;
-          blogPost.id = change.payload.doc.id;
+    this.destination = await this.destinationsService.getDestination(this.destinationId);
 
-          return blogPost;
-        });
-      }))
-      .subscribe(posts => {
-        this.posts = posts.sort((post1, post2) => {
-          if (post1.uploadTime.seconds > post2.uploadTime.seconds) {
-            return -1;
-          } else {
-            return 1;
-          }
-        });
-      });
+    this.isLoading = false;
   }
 }

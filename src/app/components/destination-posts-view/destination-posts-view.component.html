@@ -4,11 +4,11 @@
     <div class="preview-date-container" fxFlexAlign="stretch" fxLayoutAlign="center center">
       <div>
         <span class="day">
-          {{post.uploadTime.seconds * 1000 | date:'dd'}}
+          {{post.uploadTime | date:'dd'}}
         </span>
 
         <span class="month">
-          {{post.uploadTime.seconds * 1000 | date:'MMM' | hebrewMonthName}}
+          {{post.uploadTime | date:'MMM' | hebrewMonthName}}
         </span>
       </div>
     </div>
@@ -26,7 +26,7 @@
 </div>
 
 
-<div *ngIf="posts == null || posts.length === 0" class="empty-destination-container">
+<div *ngIf="!isLoading && posts.length === 0" class="empty-destination-container">
   <div class="empty-destination">
     <h2>
       עדיין לא הספקתי להעלות תמונות ל {{destination.name}}

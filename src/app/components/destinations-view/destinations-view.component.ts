@@ -1,5 +1,5 @@
+import { DestinationsService } from './../../services/destinations.service';
 import { map } from 'rxjs/operators';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { CookieService } from 'ngx-cookie-service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -22,7 +22,7 @@ export class DestinationsViewComponent implements OnInit {
   private totalTripDays: number;
 
   constructor(
-    private db: AngularFirestore,
+    private destinationsService: DestinationsService,
     private router: Router,
     private cookieService: CookieService
   ) {
@@ -41,29 +41,19 @@ export class DestinationsViewComponent implements OnInit {
     this.router.navigate([`/days/${selectedDay}`]);
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.isLoadingData = true;
+    this.cookieService.set('last-visit', `${Date.now()}`);
 
-    this.db.collection<Destination>('/destinations').snapshotChanges()
-      .pipe(map(changes => {
-        return changes.map(change => {
-          const destination = change.payload.doc.data() as Destination;
-          destination.id = change.payload.doc.id;
-
-          return destination;
-        });
-      }))
-    .subscribe(destinations => {
-      this.cookieService.set('last-visit', `${Date.now()}`);
-
-      this.isLoadingData = false;
-      this.destinations = destinations.sort((destination1, destination2) => {
-        if (destination1.timeOfArrival.seconds < destination2.timeOfArrival.seconds) {
-          return -1;
-        } else {
-          return 1;
-        }
-      });
+    const destinations = await this.destinationsService.getDestinations();
+    this.destinations = destinations.sort((destination1, destination2) => {
+      if (destination1.timeOfArrival < destination2.timeOfArrival) {
+        return -1;
+      } else {
+        return 1;
+      }
     });
+
+    this.isLoadingData = false;
   }
 }

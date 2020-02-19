@@ -1,12 +1,12 @@
 import { Paragraph } from './paragraph.type';
-import { BlogPostContent } from './blog-post-content.type';
-import { BlogMedia } from './blog-media.type';
-import { firestore } from 'firebase';
-
 export interface BlogPost {
+  id: string;
   title: string;
   previewTitle: string;
   previewImage: string;
-  uploadTime: firestore.Timestamp;
+  uploadTime: Date;
   largeImage: string;
+  gallery: string[];
+
+  paragraphs: Paragraph[];
 }

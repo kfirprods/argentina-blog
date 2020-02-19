@@ -4,6 +4,4 @@ export interface Paragraph {
   media: BlogMedia;
   text: string;
   direction: string;
-  id: string;
-  index: number;
 }
