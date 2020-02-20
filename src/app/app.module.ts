@@ -10,7 +10,6 @@ import { CookieService } from 'ngx-cookie-service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 /* My libraries */
-import { LoginComponent } from './components/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { httpInterceptorProviders } from './http-interceptors';
@@ -30,7 +29,6 @@ import { HebrewMonthNamePipe } from './pipes/hebrew-month-name.pipe';
   ],
   declarations: [
     AppComponent,
-    LoginComponent,
     DestinationsViewComponent,
     DestinationPostsViewComponent,
     PostViewComponent,
