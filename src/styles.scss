@@ -14,7 +14,7 @@ body {
 }
 
 h1 {
-  font-size: 3.0em;
+  font-size: 3em;
 }
 
 h2 {
@@ -22,7 +22,7 @@ h2 {
 }
 
 h3 {
-  font-size: 2.0em;
+  font-size: 2em;
 }
 
 h4 {
@@ -35,4 +35,41 @@ h5 {
 
 h6 {
   font-size: 1em;
+}
+
+/* earth loading animation */
+.planetPosition {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  width: 400px;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin-negative {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.airplane {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  animation: spin 9s linear 0s infinite;
 }
