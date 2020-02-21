@@ -1,3 +1,4 @@
+import { LoadingService } from './../../services/loading.service';
 import { DestinationsService } from './../../services/destinations.service';
 import { map } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
@@ -14,7 +15,6 @@ import { Destination } from '../../models/destination.type';
 })
 export class DestinationsViewComponent implements OnInit {
   destinations: Array<Destination>;
-  isLoadingData: boolean;
 
   lastVisit: Date;
   unreadBlogPosts: Array<BlogPost>;
@@ -24,11 +24,10 @@ export class DestinationsViewComponent implements OnInit {
   constructor(
     private destinationsService: DestinationsService,
     private router: Router,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private loadingService: LoadingService
   ) {
     this.destinations = null;
-
-    this.isLoadingData = true;
 
     if (this.cookieService.check('last-visit')) {
       this.lastVisit = new Date(+this.cookieService.get('last-visit'));
@@ -42,7 +41,7 @@ export class DestinationsViewComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.isLoadingData = true;
+    this.loadingService.changeIsLoading(true);
     this.cookieService.set('last-visit', `${Date.now()}`);
 
     const destinations = await this.destinationsService.getDestinations();
@@ -54,6 +53,6 @@ export class DestinationsViewComponent implements OnInit {
       }
     });
 
-    this.isLoadingData = false;
+    this.loadingService.changeIsLoading(false);
   }
 }

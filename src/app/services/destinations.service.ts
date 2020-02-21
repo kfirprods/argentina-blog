@@ -15,20 +15,7 @@ export class DestinationsService {
   }
 
   async getDestinations() {
-    const destinationIds = await this.http.get<string[]>(`${serverAddress}/destinations`).toPromise();
-    const destinations = new Array<Destination>();
-
-    for (const destinationId of destinationIds) {
-      const destination = await this.getDestination(destinationId);
-      destination.id = destinationId;
-
-      const allPosts = await this.postsService.getPosts(destination.id);
-      destination.postsCount = allPosts.length;
-      destination.photosCount = calculateArraySum(allPosts.map(post => post.gallery.length));
-      destinations.push(destination);
-    }
-
-    return destinations;
+    return await this.http.get<Destination[]>(`${serverAddress}/destinations`).toPromise();
   }
 
   async getDestination(destinationId: string) {

@@ -13,16 +13,7 @@ export class PostsService {
   }
 
   async getPosts(destinationId: string) {
-    const postNames = await this.http.get<string[]>(`${serverAddress}/destinations/${destinationId}/posts`).toPromise();
-    const posts = new Array<BlogPost>();
-
-    for (const postId of postNames) {
-      const post = await this.getPost(destinationId, postId);
-      post.id = postId;
-      posts.push(post);
-    }
-
-    return posts;
+    return await this.http.get<BlogPost[]>(`${serverAddress}/destinations/${destinationId}/posts`).toPromise();
   }
 
   async getPost(destinationId: string, name: string) {

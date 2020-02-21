@@ -3,6 +3,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({name: 'hebrewMonthName'})
 export class HebrewMonthNamePipe implements PipeTransform {
   transform(value: string): string {
+    if (value == null) {
+      return 'null';
+    }
+
     switch(value.toUpperCase()) {
       case 'JAN': {
         return 'ינו';
