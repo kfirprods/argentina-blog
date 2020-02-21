@@ -16,7 +16,7 @@
     <app-blog-media-presenter *ngIf="paragraph.media != undefined" [media]="paragraph.media"></app-blog-media-presenter>
   </p>
 
-  <div class="go-back-link">
+  <div class="go-back-link" *ngIf="post != null">
     <a [routerLink]="['/destination', destinationId]">
       → חזרה לרשימת הפוסטים
     </a>

@@ -37,7 +37,7 @@
   </div>
 </div>
 
-<div class="go-back-link">
+<div class="go-back-link" *ngIf="!isLoading">
   <a [routerLink]="['/']">
     → חזרה לרשימת היעדים
   </a>
