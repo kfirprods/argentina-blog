@@ -1,3 +1,4 @@
+import { LoadingService } from './../../services/loading.service';
 import { DestinationsService } from './../../services/destinations.service';
 import { PostsService } from './../../services/posts.service';
 import { Destination } from './../../models/destination.type';
@@ -19,12 +20,14 @@ export class DestinationPostsViewComponent implements OnInit {
   isLoading: boolean;
 
   constructor(
+    private loadingService: LoadingService,
     private destinationsService: DestinationsService,
     private postsService: PostsService,
     private route: ActivatedRoute) {
   }
 
   async ngOnInit() {
+    this.loadingService.changeIsLoading(true);
     this.isLoading = true;
     this.destinationId = this.route.snapshot.paramMap.get('destinationId');
 
@@ -40,5 +43,6 @@ export class DestinationPostsViewComponent implements OnInit {
     this.destination = await this.destinationsService.getDestination(this.destinationId);
 
     this.isLoading = false;
+    this.loadingService.changeIsLoading(false);
   }
 }

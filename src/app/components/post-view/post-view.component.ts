@@ -1,3 +1,4 @@
+import { LoadingService } from './../../services/loading.service';
 import { PostsService } from './../../services/posts.service';
 import { Paragraph } from './../../models/paragraph.type';
 import { BlogPost } from 'src/app/models/blog-post.type';
@@ -11,14 +12,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostViewComponent implements OnInit {
   post: BlogPost;
+  destinationId: string;
 
-  constructor(private postsService: PostsService, private route: ActivatedRoute) {
+  constructor(
+    private loadingService: LoadingService,
+    private postsService: PostsService,
+    private route: ActivatedRoute) {
   }
 
   async ngOnInit() {
-    const destinationId = this.route.snapshot.paramMap.get('destinationId');
+    this.destinationId = this.route.snapshot.paramMap.get('destinationId');
     const postId = this.route.snapshot.paramMap.get('postId');
 
-    this.post = await this.postsService.getPost(destinationId, postId);
+    this.loadingService.changeIsLoading(true);
+    this.post = await this.postsService.getPost(this.destinationId, postId);
+    this.loadingService.changeIsLoading(false);
   }
 }

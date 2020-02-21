@@ -1,6 +1,6 @@
 .preview-image {
-  width: 100%;
-  height: auto;
+  width: 215px;
+  height: 155px;
   border-top: 1px solid #bababa;
   margin: 0;
 }
@@ -42,9 +42,6 @@
 }
 
 .empty-destination-container {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   margin: 20% 0;
 }
@@ -52,11 +49,4 @@
 .empty-destination {
   margin: 0 5%;
   text-align: center;
-}
-
-.empty-destination-container a {
-  margin: 10% 5%;
-  font-size: 2.5em;
-  text-decoration: none;
-  color: #0074D9
 }
