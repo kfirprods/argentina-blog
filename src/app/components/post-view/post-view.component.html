@@ -16,6 +16,14 @@
     <app-blog-media-presenter *ngIf="paragraph.media != undefined" [media]="paragraph.media"></app-blog-media-presenter>
   </p>
 
+  <div *ngIf="post.gallery != null && post.gallery.length > 0">
+    <h2 class="gallery-title">
+      גלריה
+    </h2>
+
+    <app-gallery [photos]="post.gallery"></app-gallery>
+  </div>
+
   <div class="go-back-link" *ngIf="post != null">
     <a [routerLink]="['/destination', destinationId]">
       → חזרה לרשימת הפוסטים
