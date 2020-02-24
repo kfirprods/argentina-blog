@@ -1,3 +1,4 @@
+import { TimestampPresenterComponent } from './components/timestamp-presenter/timestamp-presenter.component';
 import { BlogMediaPresenterComponent } from './components/blog-media-presenter/blog-media-presenter.component';
 /* Built-in modules */
 import { NgModule } from '@angular/core';
@@ -35,7 +36,8 @@ import { GalleryComponent } from './components/gallery/gallery.component';
     PostViewComponent,
     BlogMediaPresenterComponent,
     HebrewMonthNamePipe,
-    GalleryComponent
+    GalleryComponent,
+    TimestampPresenterComponent
   ],
   bootstrap: [AppComponent],
   providers: [httpInterceptorProviders, CookieService]

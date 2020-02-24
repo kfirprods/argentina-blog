@@ -1,14 +1,35 @@
 .destination-container {
   margin: 50px 10%;
-  box-shadow: 0 6px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2);
   text-align: center;
   overflow: hidden;
   background: #fff;
 }
 
-.destination-header-image {
+%destination-header-image {
   width: 100%;
   height: auto;
+}
+
+.destination-image {
+  @extend %destination-header-image;
+}
+
+.future-destination-image {
+  @extend %destination-header-image;
+  opacity: 0.3;
+}
+
+.destination-done-container {
+  margin-top: 50px;
+  color: #898989;
+  font-size: 0.8rem;
+}
+
+.destination-done-container fa-icon {
+  font-size: 1.6rem;
+  vertical-align: middle;
+  margin-left: 10px;
 }
 
 .destination-header-text {

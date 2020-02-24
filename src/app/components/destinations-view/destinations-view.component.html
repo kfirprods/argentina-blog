@@ -1,7 +1,8 @@
 <section *ngFor="let destination of destinations">
   <div class="destination-container" [routerLink]="['/destination', destination.id]">
     <div class="destination-image-container">
-      <img [src]="destination.image" class="destination-header-image" />
+      <img [src]="destination.image"
+        [ngClass]="destination.timeOfArrival > now ? 'future-destination-image' : 'destination-image'" />
     </div>
 
     <div class="destination-text-container">
@@ -29,6 +30,22 @@
         <span>
           {{destination.photosCount}} תמונות
         </span>
+      </p>
+    </div>
+
+    <div class="destination-done-container">
+      <p *ngIf="destination.timeOfDeparture < now">
+        <fa-icon [icon]="faCheckCircle"></fa-icon>
+        עזבתי את היעד לפני
+        <app-timestamp-presenter [timestamp]="destination.timeOfDeparture"></app-timestamp-presenter>
+      </p>
+      <p *ngIf="destination.timeOfArrival < now && destination.timeOfDeparture > now">
+        <fa-icon [icon]="faArrowCircleDown"></fa-icon>
+        אני כאן עכשיו
+      </p>
+      <p *ngIf="destination.timeOfArrival > now">
+        <fa-icon [icon]="faClock"></fa-icon>
+        עוד לא הגעתי לכאן
       </p>
     </div>
   </div>

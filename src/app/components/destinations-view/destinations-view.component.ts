@@ -1,6 +1,6 @@
+import { faCheckCircle, faAnchor, faClock } from '@fortawesome/free-solid-svg-icons';
 import { LoadingService } from './../../services/loading.service';
 import { DestinationsService } from './../../services/destinations.service';
-import { map } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -19,6 +19,12 @@ export class DestinationsViewComponent implements OnInit {
   lastVisit: Date;
   unreadBlogPosts: Array<BlogPost>;
 
+  now: Date;
+
+  faCheckCircle = faCheckCircle;
+  faArrowCircleDown = faAnchor;
+  faClock = faClock;
+
   private totalTripDays: number;
 
   constructor(
@@ -34,6 +40,8 @@ export class DestinationsViewComponent implements OnInit {
     } else {
       this.lastVisit = new Date(Date.now());
     }
+
+    this.now = new Date();
   }
 
   changeCurrentDay(selectedDay: number) {
