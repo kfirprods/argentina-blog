@@ -19,16 +19,16 @@ export class TimestampPresenterComponent implements OnInit {
     const daysDifference = Math.floor(diff / (60 * 60 * 24));
 
     if (diff < 10 * 60) {
-      this.timespanDescription = 'כמה דקות';
+      this.timespanDescription = 'לפני כמה דקות';
     } else if (diff < 60 * 60) {
       this.timespanDescription = 'בשעה האחרונה';
     } else if (diff < 24 * 60 * 60) {
       if (hourDifference === 1) {
-        this.timespanDescription = 'שעה';
+        this.timespanDescription = 'לפני שעה';
       } else if (hourDifference === 2) {
-        this.timespanDescription = 'שעתיים';
+        this.timespanDescription = 'לפני שעתיים';
       } else {
-      this.timespanDescription = '' + hourDifference + ' שעות';
+      this.timespanDescription = 'לפני ' + hourDifference + ' שעות';
       }
     } else {
       if (daysDifference === 1) {
@@ -36,7 +36,7 @@ export class TimestampPresenterComponent implements OnInit {
       } else if (daysDifference === 2) {
         this.timespanDescription = 'שלשום';
       } else {
-        this.timespanDescription = '' + daysDifference + ' ימים';
+        this.timespanDescription = 'לפני ' + daysDifference + ' ימים';
       }
     }
   }

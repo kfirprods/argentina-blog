@@ -17,7 +17,9 @@
 
 .future-destination-image {
   @extend %destination-header-image;
-  opacity: 0.3;
+  opacity: 0.5;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
 }
 
 .destination-done-container {

@@ -36,7 +36,7 @@
     <div class="destination-done-container">
       <p *ngIf="destination.timeOfDeparture < now">
         <fa-icon [icon]="faCheckCircle"></fa-icon>
-        עזבתי את היעד לפני
+        עזבתי את היעד
         <app-timestamp-presenter [timestamp]="destination.timeOfDeparture"></app-timestamp-presenter>
       </p>
       <p *ngIf="destination.timeOfArrival < now && destination.timeOfDeparture > now">
