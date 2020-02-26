@@ -19,6 +19,7 @@ import { DestinationPostsViewComponent } from './components/destination-posts-vi
 import { PostViewComponent } from './components/post-view/post-view.component';
 import { HebrewMonthNamePipe } from './pipes/hebrew-month-name.pipe';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { GalleryComponent } from './components/gallery/gallery.component';
     BlogMediaPresenterComponent,
     HebrewMonthNamePipe,
     GalleryComponent,
-    TimestampPresenterComponent
+    TimestampPresenterComponent,
+    LoginComponent
   ],
   bootstrap: [AppComponent],
   providers: [httpInterceptorProviders, CookieService]

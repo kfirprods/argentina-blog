@@ -43,3 +43,72 @@
   direction: ltr;
   text-align: center;
 }
+
+/* editor */
+.editor-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(black, 0.95);
+}
+
+%editor-input {
+  width: 80%;
+  height: auto;
+  padding: 0 10%;
+  font-size: 2.5em;
+  font-family: 'Varela Round';
+}
+
+.hebrew-editor-input {
+  @extend %editor-input;
+  direction: rtl;
+  text-align: right;
+}
+
+.english-editor-input {
+  @extend %editor-input;
+  direction: ltr;
+  text-align: center;
+}
+
+.direction-selection-container {
+  text-align: center;
+  margin: 50px auto;
+}
+
+.direction-selection-container fa-icon {
+  font-size: 4em;
+}
+
+%direction-container {
+  display: inline-block;
+  margin: 0 50px;
+}
+
+.selected-direction-container {
+  @extend %direction-container;
+  font-weight: 700;
+  color: white;
+}
+
+.unselected-direction-container {
+  @extend %direction-container;
+  font-weight: 400;
+  color: #A0A0A0;
+}
+
+.form-submission-container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form-submission-container button {
+  font-size: 2em;
+  background: rgba(white, 0);
+  border: 1px solid white;
+  padding: 10px 20px;
+  color: white;
+}

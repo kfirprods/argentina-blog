@@ -13,6 +13,10 @@
     [ngClass]="paragraph.direction === 'ltr' ? 'english-content-paragraph' : 'hebrew-content-paragraph'">
     {{paragraph.text}}
 
+    <a *ngIf="authenticationService.isAdmin$ | async" (click)="editParagraphText(paragraph)">
+      <fa-icon [icon]="faPen"></fa-icon>
+    </a>
+
     <app-blog-media-presenter *ngIf="paragraph.media != undefined" [media]="paragraph.media"></app-blog-media-presenter>
   </p>
 
@@ -28,5 +32,43 @@
     <a [routerLink]="['/destination', destinationId]">
       → חזרה לרשימת הפוסטים
     </a>
+  </div>
+</div>
+
+<div *ngIf="editedParagraph != null" class="editor-container">
+  <textarea rows=5 [value]="editedParagraph.text"
+    [ngClass]="editedParagraph.direction === 'rtl' ? 'hebrew-editor-input' : 'english-editor-input'">
+  </textarea>
+
+  <div class="direction-selection-container">
+    <div
+      [ngClass]="editedParagraph.direction === 'rtl' ? 'selected-direction-container' : 'unselected-direction-container'"
+      (click)="applyParagraphDirection('rtl')">
+      <div>
+        HEBREW
+      </div>
+
+      <div>
+        <fa-icon [icon]="faRightToLeft"></fa-icon>
+      </div>
+    </div>
+
+    <div class='direction-container'
+      [ngClass]="editedParagraph.direction === 'ltr' ? 'selected-direction-container' : 'unselected-direction-container'"
+      (click)="applyParagraphDirection('ltr')">
+      <div>
+        ENGLISH
+      </div>
+
+      <div>
+        <fa-icon [icon]="faCenter"></fa-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-submission-container'>
+    <button (click)="finishParagraphEditing()">
+      סיים עריכה
+    </button>
   </div>
 </div>
