@@ -15,7 +15,7 @@ export class PostViewComponent implements OnInit {
   destinationId: string;
 
   constructor(
-    private loadingService: LoadingService,
+    public loadingService: LoadingService,
     private postsService: PostsService,
     private route: ActivatedRoute) {
   }

@@ -1,44 +1,46 @@
-<div *ngFor="let post of posts">
-  <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center" class="post-preview-tile-container"
-    [routerLink]="['/destination', destinationId, 'post', post.id]">
-    <div class="preview-date-container" fxFlexAlign="stretch" fxLayoutAlign="center center">
-      <div>
-        <span class="day">
-          {{post.uploadTime | date:'dd'}}
-        </span>
+<div *ngIf="!isLoading">
+  <div *ngFor="let post of posts">
+    <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center" class="post-preview-tile-container"
+      [routerLink]="['/destination', destinationId, 'post', post.id]">
+      <div class="preview-date-container" fxFlexAlign="stretch" fxLayoutAlign="center center">
+        <div>
+          <span class="day">
+            {{post.uploadTime | date:'dd'}}
+          </span>
 
-        <span class="month">
-          {{post.uploadTime | date:'MMM' | hebrewMonthName}}
-        </span>
+          <span class="month">
+            {{post.uploadTime | date:'MMM' | hebrewMonthName}}
+          </span>
+        </div>
       </div>
-    </div>
 
-    <div fxFlex="25">
-      <img [src]="post.previewImage" class="preview-image" />
-    </div>
+      <div fxFlex="25">
+        <img [src]="post.previewImage" class="preview-image" />
+      </div>
 
-    <div fxLayout="column" fxFlex="70" class="preview-content-container">
-      <div class="preview-content">
-        {{post.previewTitle}}
+      <div fxLayout="column" fxFlex="70" class="preview-content-container">
+        <div class="preview-content">
+          {{post.previewTitle}}
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
-<div *ngIf="!isLoading && posts.length === 0" class="empty-destination-container">
-  <div class="empty-destination">
-    <h2>
-      עדיין לא הספקתי להעלות תמונות ל {{destination.name}}
-    </h2>
-    <h3>
-      תחזרו מאוחר יותר? :)
-    </h3>
+  <div *ngIf="posts.length === 0" class="empty-destination-container">
+    <div class="empty-destination">
+      <h2>
+        עדיין לא הספקתי להעלות תמונות ל {{destination.name}}
+      </h2>
+      <h3>
+        תחזרו מאוחר יותר? :)
+      </h3>
+    </div>
   </div>
-</div>
 
-<div class="go-back-link" *ngIf="!isLoading">
-  <a [routerLink]="['/']">
-    → חזרה לרשימת היעדים
-  </a>
+  <div class="go-back-link">
+    <a [routerLink]="['/']">
+      → חזרה לרשימת היעדים
+    </a>
+  </div>
 </div>

@@ -8,7 +8,10 @@ export class LoadingService {
   @Output()
   loadingChangedEvent: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
+  isLoading = false;
+
   changeIsLoading(isLoading: boolean) {
+    this.isLoading = isLoading;
     this.loadingChangedEvent.next(isLoading);
   }
 }
