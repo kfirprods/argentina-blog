@@ -9,12 +9,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthenticationService {
   user$: Observable<string>;
-  isAdmin$: Observable<boolean>;
+  isAdmin = false;
   password = '';
 
   constructor(private http: HttpClient, private router: Router) {
-    this.user$ = null;
-    this.isAdmin$ = of(true);
   }
 
   async login(password: string) {
@@ -22,6 +20,7 @@ export class AuthenticationService {
 
     if (response.isSuccessful) {
       this.password = password;
+      this.isAdmin = true;
     }
 
     return response.isSuccessful;
