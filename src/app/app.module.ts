@@ -1,3 +1,4 @@
+import { LowerCaseUrlSerializer } from './lower-case-url-serializer';
 import { TimestampPresenterComponent } from './components/timestamp-presenter/timestamp-presenter.component';
 import { BlogMediaPresenterComponent } from './components/blog-media-presenter/blog-media-presenter.component';
 /* Built-in modules */
@@ -19,6 +20,7 @@ import { DestinationPostsViewComponent } from './components/destination-posts-vi
 import { PostViewComponent } from './components/post-view/post-view.component';
 import { HebrewMonthNamePipe } from './pipes/hebrew-month-name.pipe';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { UrlSerializer } from '@angular/router';
 
 
 @NgModule({
@@ -40,6 +42,13 @@ import { GalleryComponent } from './components/gallery/gallery.component';
     TimestampPresenterComponent
   ],
   bootstrap: [AppComponent],
-  providers: [httpInterceptorProviders, CookieService]
+  providers: [
+    httpInterceptorProviders,
+    {
+      provide: UrlSerializer,
+      useClass: LowerCaseUrlSerializer
+    },
+    CookieService
+  ]
 })
 export class AppModule { }
