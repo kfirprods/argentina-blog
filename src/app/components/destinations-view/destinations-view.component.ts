@@ -2,7 +2,7 @@ import { faCheckCircle, faAnchor, faClock } from '@fortawesome/free-solid-svg-ic
 import { LoadingService } from './../../services/loading.service';
 import { DestinationsService } from './../../services/destinations.service';
 import { CookieService } from 'ngx-cookie-service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { BlogPost } from '../../models/blog-post.type';
@@ -24,8 +24,6 @@ export class DestinationsViewComponent implements OnInit {
   faCheckCircle = faCheckCircle;
   faArrowCircleDown = faAnchor;
   faClock = faClock;
-
-  private totalTripDays: number;
 
   constructor(
     private destinationsService: DestinationsService,
@@ -62,5 +60,22 @@ export class DestinationsViewComponent implements OnInit {
     });
 
     this.loadingService.changeIsLoading(false);
+
+    setTimeout(() => {
+      for (const destination of this.destinations) {
+        if (this.now > destination.timeOfArrival && this.now < destination.timeOfDeparture) {
+          const destinationToScrollTo = document.getElementById(destination.id);
+
+          if (destinationToScrollTo) {
+            const elementRect = destinationToScrollTo.getBoundingClientRect();
+            const absoluteElementTop = elementRect.top + window.pageYOffset;
+            const absoluteElementCenter = absoluteElementTop + elementRect.height / 2;
+            const middle = absoluteElementCenter - (window.innerHeight / 2);
+            window.scrollTo({top: middle, behavior: 'smooth'});
+          }
+          break;
+        }
+      }
+    }, 100);
   }
 }
