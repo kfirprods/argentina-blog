@@ -1,5 +1,5 @@
 <section *ngFor="let destination of destinations">
-  <div [id]="destination.id" (loaded)="destinationLoaded(destination)" class="destination-container" [routerLink]="['/destination', destination.id]">
+  <div [id]="destination.id" class="destination-container" [routerLink]="['/destination', destination.id]">
     <div class="destination-image-container">
       <img [src]="destination.image"
         [ngClass]="destination.timeOfArrival > now ? 'future-destination-image' : 'destination-image'" />
