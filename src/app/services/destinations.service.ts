@@ -1,17 +1,13 @@
-import { PostsService } from './posts.service';
 import { Destination } from './../models/destination.type';
-import { map } from 'rxjs/operators';
 import { serverAddress } from './consts';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { of } from 'rxjs';
-import { calculateArraySum } from 'src/utils';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DestinationsService {
-  constructor(private http: HttpClient, private postsService: PostsService) {
+  constructor(private http: HttpClient) {
   }
 
   async getDestinations() {

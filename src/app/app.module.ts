@@ -21,6 +21,7 @@ import { PostViewComponent } from './components/post-view/post-view.component';
 import { HebrewMonthNamePipe } from './pipes/hebrew-month-name.pipe';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { UrlSerializer } from '@angular/router';
+import { ModalGalleryComponent } from './components/modal-gallery/modal-gallery.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { UrlSerializer } from '@angular/router';
     BlogMediaPresenterComponent,
     HebrewMonthNamePipe,
     GalleryComponent,
-    TimestampPresenterComponent
+    TimestampPresenterComponent,
+    ModalGalleryComponent
   ],
   bootstrap: [AppComponent],
   providers: [
