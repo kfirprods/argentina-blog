@@ -1,5 +1,7 @@
-<div *ngFor="let album of albums">
-  <div class="gallery-container">
-    <img class="preview" [src]="album.leadingPhoto">
+ <div fxLayout="row wrap" fxLayoutAlign="center stretch" fxLayoutGap="20px">
+  <div *ngFor="let album of albums" fxFlex="40">
+    <div class="gallery-container">
+      <img class="preview" [src]="album.leadingPhoto">
+    </div>
   </div>
 </div>
