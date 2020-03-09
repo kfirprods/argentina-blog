@@ -39,7 +39,6 @@ export class BlogMediaPresenterComponent implements OnInit {
   constructor(public auth: AuthenticationService) { }
 
   ngOnInit() {
-    console.log(`Media: ${this.media}`);
     // this.galleryImages = [];
 
     // if (this.media.type === 'gallery') {

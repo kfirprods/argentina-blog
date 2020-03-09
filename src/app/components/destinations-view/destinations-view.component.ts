@@ -67,11 +67,14 @@ export class DestinationsViewComponent implements OnInit {
           const destinationToScrollTo = document.getElementById(destination.id);
 
           if (destinationToScrollTo) {
+            const isDestinationLast = this.destinations.indexOf(destination) === this.destinations.length - 1;
+
             const elementRect = destinationToScrollTo.getBoundingClientRect();
             const absoluteElementTop = elementRect.top + window.pageYOffset;
             const absoluteElementCenter = absoluteElementTop + elementRect.height / 2;
             const middle = absoluteElementCenter - (window.innerHeight / 2);
-            window.scrollTo({top: middle, behavior: 'smooth'});
+
+            window.scrollTo({top: isDestinationLast ? document.body.scrollHeight : middle, behavior: 'smooth'});
           }
           break;
         }
